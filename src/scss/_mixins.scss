@@ -1,0 +1,100 @@
+//
+//  MEDIA QUERIES
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+
+$width-xs: 480px;
+$width-sm: 768px;
+$width-smm: 900px;
+$width-md: 1024px;
+$width-lg: 1280px;
+$width-xl: 1620px;
+
+@mixin fullhd {
+  @media (min-width: #{$width-xl}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$width-lg}) and (max-width: #{$width-xl - 1px}) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media (min-width: #{$width-md}) and (max-width: #{$width-lg - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$width-sm}) and (max-width: #{$width-md - 1px}) {
+    @content;
+  }
+}
+@mixin stablet {
+  @media (min-width: #{$width-sm}) and (max-width: #{$width-smm - 1px}) {
+    @content;
+  }
+}
+
+@mixin phablet {
+  @media (max-width: #{$width-sm - 1px}) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: #{$width-xs - 1px}) {
+    @content;
+  }
+}
+
+@mixin alldesktops {
+  @media (min-width: #{$width-md}) {
+    @content;
+  }
+}
+
+@mixin container($width, $max-width) {
+  .container {
+    width: $width;
+    max-width: $max-width;
+  }
+}
+
+@mixin break() {
+  .break {
+    flex-basis: 100%;
+    width: 0px;
+    height: 5px;
+    overflow: hidden;
+    order: 1;
+  }
+}
+
+@mixin pseudo() {
+  display: block;
+  content: " ";
+  position: absolute;
+  bottom: auto;
+  left: auto;
+  top: auto;
+  right: auto;
+  z-index: 0;
+  width: 1px;
+  height: 1px;
+}
+
+@mixin dark {
+  .scheme-dark & {
+    @content;
+  }
+}
+
+@mixin transition($property: all, $duration: .2s, $ease: ease){
+	-webkit-transition: $property $duration $ease;
+	-moz-transition: $property $duration $ease;
+	-o-transition: $property $duration $ease;
+	transition: $property $duration $ease;
+}
